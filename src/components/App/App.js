@@ -12,9 +12,12 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
-        <YearStats />
-        <SkillsStats />
-        <AreaStats />
+        <div className="dashboard-container">
+          <YearStats />
+          <AreaStats />
+          <SkillsStats />
+        </div>
+        
       </div>
     );
   }

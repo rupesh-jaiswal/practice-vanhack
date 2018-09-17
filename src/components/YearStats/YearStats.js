@@ -7,11 +7,16 @@ export class YearStats extends Component {
         statsData:undefined
     } 
     componentDidMount() {
+
         const yearStats = underscore.groupBy(successData, 'Year');
+        
         const years = Object.keys(yearStats);
         const statsData = years.map((year) => ({
             Year: year,
             Hires: yearStats[year].length
+        }));
+        console.log(underscore.sortBy(statsData, function(year) {
+            return year.Hires;
         }));
         this.setState({ statsData});
     }
@@ -31,6 +36,7 @@ export class YearStats extends Component {
                         <Bar dataKey="Hires" fill="#8884d8" onClick={this.onBarClick}/>
                     </BarChart>
                 }
+                <h3>Hires by Years</h3>
             </div>
         )
     }
