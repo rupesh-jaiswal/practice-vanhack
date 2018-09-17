@@ -27,7 +27,7 @@ export class YearStats extends Component {
         return (
             <div className="year-container">
                 {this.state.statsData && 
-                    <BarChart width={400} height={500} data={this.state.statsData}>
+                    <BarChart width={400} height={450} data={this.state.statsData}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="Year" />
                         <YAxis />

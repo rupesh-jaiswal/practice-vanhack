@@ -41,9 +41,9 @@ const renderActiveShape = (props) => {
         />
         <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none"/>
         <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none"/>
-        <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`PV ${value}`}</text>
+        <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`${payload.name}`}</text>
         <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
-          {`(Rate ${(percent * 100).toFixed(2)}%)`}
+          {`(Total ${value})`}
         </text>
       </g>
     );
@@ -79,11 +79,12 @@ export class AreaStats extends Component {
         return (
             <div className="area-container">
                 {this.state.statsData && 
-                    <PieChart width={500} height={500}>
-                    <Pie data={this.state.statsData} cx="250" cy="250" dataKey="Hires" outerRadius={200} innerRadius={170}
+                    <PieChart width={700} height={450}>
+                    <Pie data={this.state.statsData} cx="350" cy="200" dataKey="Hires" outerRadius={150} innerRadius={100}
                     onMouseEnter={this.onPieEnter} 
                     activeIndex={this.state.activeIndex}
-                    activeShape={renderActiveShape} >
+                    activeShape={renderActiveShape} 
+                    >
                       {
                         this.state.statsData.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={getRandomColor()}/>
