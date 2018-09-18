@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import underscore from 'underscore';
 import successData from '../../assets/success-cases';
-import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar} from 'recharts';
+import { AreaChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Area} from 'recharts';
 export class YearStats extends Component {
     state = {
         statsData:undefined
@@ -25,16 +25,16 @@ export class YearStats extends Component {
     }
     render() {
         return (
-            <div className="year-container">
+            <div className="flex-column-center year-container">
                 {this.state.statsData && 
-                    <BarChart width={400} height={450} data={this.state.statsData}>
+                    <AreaChart width={700} height={300} data={this.state.statsData}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="Year" />
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="Hires" fill="#8884d8" onClick={this.onBarClick}/>
-                    </BarChart>
+                        <Area dataKey="Hires" fill="#8884d8" onClick={this.onBarClick}/>
+                    </AreaChart>
                 }
                 <h3>Hires by Years</h3>
             </div>

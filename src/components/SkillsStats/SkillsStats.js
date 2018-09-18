@@ -23,7 +23,7 @@ export class SkillsChart extends Component {
     }
     render() {
         return (
-            <div className="skills-container">
+            <div className="flex-column-center skills-container">
                
                 {this.state.statsData && 
                      <BarChart width={1300} height={500} data={this.state.statsData} >

@@ -20,19 +20,33 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-.year-container {
+.flex-column-center {
   display: flex;
   flex-direction: column;
-  width: 30%;
-  padding: 20px;
   align-items: center;
 }
-.area-container {
-  display: flex;
-  flex-direction: column;
+.year-container {
+  width: 60%;
+  padding-top: 20px;
+}
+.area-container, .city-container {
   width: 50%;
-  padding: 20px;
-  align-items: center
+  padding-top: 20px;
+}
+.total-hires-container {
+  width: 40%;
+  justify-content: center;
+}
+.total-number {
+  font-weight: 500;
+  font-size: 12rem;
+  line-height: 1;
+  color: #333;
+}
+.total-hires {
+  font-size: 2.25rem;
+  line-height: 1.33333;
+  color: #333;
 }
 h3 {
   color: #333;

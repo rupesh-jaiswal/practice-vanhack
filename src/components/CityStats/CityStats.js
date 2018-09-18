@@ -5,7 +5,7 @@ import { getRandomColor } from '../../utils/color-generator';
 import { PieChart, Pie, Cell, Tooltip} from 'recharts';
 import renderActiveShape from '../helpers/renderActiveShape';
 
-export class AreaStats extends Component {
+export class CityStats extends Component {
     state = {
         statsData:undefined,
         activeIndex: 0,
@@ -13,7 +13,7 @@ export class AreaStats extends Component {
     } 
     
     componentDidMount() {
-        const areasData = underscore.groupBy(successData, 'Area');
+        const areasData = underscore.groupBy(successData, 'City');
         const areas = Object.keys(areasData);
         const colors = [];
         const statsData = areas.map((area) => {
@@ -31,16 +31,14 @@ export class AreaStats extends Component {
         });
     }
     onPieClick = (data) => {
-        console.log(data);
     }
     getLabel(data) {
-        console.log(data.name);
         return data.name;
     }
     render() {
         const { statsData, colors, activeIndex } = this.state;
         return (
-            <div className="flex-column-center area-container">
+            <div className="flex-column-center city-container">
                 {statsData && 
                     <PieChart width={700} height={450}>
                     <Pie data={statsData} cx="350" cy="200" dataKey="Hires" outerRadius={150} innerRadius={100}
@@ -57,11 +55,11 @@ export class AreaStats extends Component {
                     <Tooltip/>
                   </PieChart>
                 }
-                <h3>Hires by Areas</h3>
+                <h3>Hires by City</h3>
                 
             </div>
         )
     }
 }
 
-export default AreaStats;
+export default CityStats;
